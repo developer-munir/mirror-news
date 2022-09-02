@@ -1,19 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mirror News</title>
     <!-- bootstrap cdn -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
     <!-- custom css link -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <!-- header section starts here -->
     <header>
-        <h1>Welcome to assignment six</h1>
+      <!-- navbar -->
+      <section class="container">
+        <nav
+          class="navbar navbar-expand-lg border-bottom border-dark border-opacity-50 px-4"
+        >
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+              ><span class="mydark-bgcolor mylight-textcolor px-2 rounded me-1"
+                >Mirror</span
+              >
+              <span>News</span></a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarText"
+              aria-controls="navbarText"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <div class="ms-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link mydark-textcolor"
+                      aria-current="page"
+                      href="#"
+                      >News</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link mydark-textcolor" href="#">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link mydark-textcolor" href="#">img</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </section>
     </header>
     <!-- header section ends here -->
 
@@ -33,5 +81,5 @@
     <!-- custome js link -->
     <script src="js/utilites.js"></script>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

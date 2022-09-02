@@ -12,12 +12,15 @@ google font cdn
 }
 body{
     overflow-x: hidden;
-    background-color: #242B2E;
-    color: #CAD5E2;
+    color: #242B2E;
+    background-color: #CAD5E2;
     font-family: 'PT Serif', serif;
 }
 .mydark-textcolor{
-    color: #242B2E;
+    color: #242B2E ;
+}
+.mydark-bgcolor{
+    background-color: #242B2E;
 }
 .mylight-textcolor{
     color: #CAD5E2;
