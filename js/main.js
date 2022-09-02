@@ -12,13 +12,13 @@ const categories = (datas) => {
   const categoryLinkContainer = document.getElementById("categories-links");
   datas.forEach((data) => {
     const categoryId = data.category_id;
-    console.log(categoryId);
+    // console.log(categoryId);
     const categoryName = data.category_name;
     const li = document.createElement("li");
     li.innerHTML = `
             <a class="nav-link" href="#" onclick="createNewsId(${categoryId})">${categoryName}</a>
         `;
-    categoryLinkContainer.appendChild(li);
+        categoryLinkContainer.appendChild(li);
   });
 };
 categoriesData();
@@ -34,9 +34,16 @@ const createNewsId = (id) => {
     .catch((error) => console.log(error));
 };
 const news = (datas) => {
-  // console.log(datas);
   const cardContainer = document.getElementById("card-container");
-  cardContainer.textContent = ``;
+  // founding news
+  const foundItems = document.getElementById("foundItems");
+  const result = cardContainer.children.length;
+  if (cardContainer.children.length === 0) {
+    foundItems.innerText = 'no news found';
+  } else {
+    foundItems.innerText = `${result} result found `
+  }
+    cardContainer.textContent = ``;
   datas.forEach((data) => {
     console.log(data);
     const div = document.createElement("div");
@@ -53,8 +60,8 @@ const news = (datas) => {
                   data.author.img
                 }" class = "img-fluid rounded rounded-pill w-25" alt=".." />
                 <div>
-                    <p>${data.author.name}</p>
-                    <p>${data.author.published_date}</p>
+                    <p>${data.author?.name? data.author.name:'no name found'}</p>
+                    <p>${data.author?.published_date? data.author.published_date : 'date is not available'}</p>
                 </div>
                 </div>
                 <div class="col-6 text-center">
@@ -65,6 +72,9 @@ const news = (datas) => {
                 </div>
             </div>
                 `;
-    cardContainer.appendChild(div);
-  });
+      cardContainer.appendChild(div);
+    });
 };
+/* ------------------------------------
+searching count 
+-------------------------------------- */
