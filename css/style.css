@@ -1,0 +1,30 @@
+/* ------------
+google font cdn
+--------------- */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+/* ------------------------------
+    common css
+---------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+    background-color: #242B2E;
+    color: #CAD5E2;
+    font-family: 'PT Serif', serif;
+}
+.mydark-textcolor{
+    color: #242B2E;
+}
+.mylight-textcolor{
+    color: #CAD5E2;
+}
+.mylight-bgcolor{
+    background-color: #CAD5E2;
+}
+.myred-textcolor{
+    color: #B4161B;
+}
