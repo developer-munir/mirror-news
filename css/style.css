@@ -31,7 +31,9 @@ body{
 .myred-textcolor{
     color: #B4161B;
 }
-
+.founding-container{
+    height: 70px;
+}
 .hover-card:hover{
     box-shadow: 0 0.5rem 2rem rgba(43, 35, 35, 0.175);
 }
