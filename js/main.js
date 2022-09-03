@@ -15,7 +15,7 @@ const categories = (datas) => {
     const categoryName = data.category_name;
     const li = document.createElement("li");
     li.innerHTML = `
-            <a class="nav-link" href="#" onclick="createNewsId(${categoryId})">${categoryName}</a>
+            <a class="nav-link myred-textcolor" href="#" onclick="createNewsId(${categoryId})">${categoryName}</a>
         `;
     categoryLinkContainer.appendChild(li);
   });
@@ -26,6 +26,7 @@ categoriesData();
  all news section 
  -------------------------------------*/
 const createNewsId = (id) => {
+    spinnerLading(true);
   const url = `https://openapi.programming-hero.com/api/news/category/0${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -34,11 +35,11 @@ const createNewsId = (id) => {
 };
 const news = (datas) => {
   // loding spinner
-  spinnerLading(true);
+
 
   // sorting total view
   const sortTotalView = (a, b) => {
-    return a.total_view - b.total_view;
+    return b.total_view - a.total_view;
   };
   datas.sort(sortTotalView);
 
@@ -66,13 +67,13 @@ const news = (datas) => {
                 <div class="d-flex align-items-center justify-content-evenly col-12 mb-2">
                 <img src="${
                   data.author.img
-                }" class = "img-fluid rounded rounded-pill w-25" alt=".." />
+                }" class = "img-fluid rounded rounded-pill w-25 red-borderimg" alt=".." />
                 <div>
+                    <p>By <span class = "myred-color">${
+                      data.author.name ? data.author.name : "no name found"
+                    }</span></p>
                     <p>${
-                      data.author?.name ? data.author.name : "no name found"
-                    }</p>
-                    <p>${
-                      data.author?.published_date
+                      data.author.published_date
                         ? data.author.published_date
                         : "no date found"
                     }</p>
@@ -152,7 +153,7 @@ const openDetails = (data) => {
   </div>
   `;
   body.innerHTML = `
-  <h6 class = "text-center border-bottom">Details</h6>
+  <h6 class = "text-center border-bottom pb-2">Post Details</h6>
   <p>
     ${data.details ? data.details : "details not found"}
   </p>  
@@ -169,3 +170,4 @@ const spinnerLading = (isLoading) => {
     spinner.classList.add("d-none");
   }
 };
+  createNewsId(8);
