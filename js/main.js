@@ -26,7 +26,8 @@ categoriesData();
  all news section 
  -------------------------------------*/
 const createNewsId = (id) => {
-    spinnerLading(true);
+  // loding spinner
+  spinnerLading(true);
   const url = `https://openapi.programming-hero.com/api/news/category/0${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -34,8 +35,7 @@ const createNewsId = (id) => {
     .catch((error) => console.log(error));
 };
 const news = (datas) => {
-  // loding spinner
-
+  
 
   // sorting total view
   const sortTotalView = (a, b) => {
@@ -62,12 +62,15 @@ const news = (datas) => {
               <img src="${data.image_url}" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">${data.title}</h5>
-                <p class="card-text">${data.details.slice(0, 200)}...</p>
+                <p class="card-text card-fontsize">${data.details.slice(
+                  0,
+                  200
+                )}...</p>
                 <div class="row">
                 <div class="d-flex align-items-center justify-content-evenly col-12 mb-2">
                 <img src="${
                   data.author.img
-                }" class = "img-fluid rounded rounded-pill w-25 red-borderimg" alt=".." />
+                }" class = "img-fluid rounded rounded-pill w-25 red-borderimg mb-2" alt=".." />
                 <div>
                     <p>By <span class = "myred-color">${
                       data.author.name ? data.author.name : "no name found"
@@ -85,7 +88,7 @@ const news = (datas) => {
                     }<span><p></p>
                 </div>
                 <div class="col-6 text-center">
-                    <button type="button" class="btn mylight-textcolor" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    <button type="button" class="btn border mylight-textcolor" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                      onclick="createDetailsById('${
                        data._id
                      }')"><i class="fa-solid fa-right-to-bracket" ></i></button>
@@ -135,7 +138,7 @@ const openDetails = (data) => {
   const title = document.getElementById("staticBackdropLabel");
   const body = document.getElementById("modal-body");
   title.innerHTML = `
-  <h5>
+  <h5 class = "myred-color">
       Author Name : ${data.author.name ? data.author.name : "no name found"}  
   </h5>
   <p> 
@@ -149,7 +152,9 @@ const openDetails = (data) => {
   <img src="${
     data.author.img ? data.author.img : "img not found"
   }" class="img-fluid w-25 rounded-pill mb-2" alt="">
-  <p>Total View : ${data.total_view ? data.total_view : "no view found"}</p>
+  <p class="myred-color">Total View : ${
+    data.total_view ? data.total_view : "no view found"
+  }</p>
   </div>
   `;
   body.innerHTML = `
