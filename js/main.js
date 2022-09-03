@@ -35,6 +35,13 @@ const createNewsId = (id) => {
 const news = (datas) => {
   // loding spinner
   spinnerLading(true);
+
+  // sorting total view
+  const sortTotalView = (a, b) => {
+    return a.total_view - b.total_view;
+  };
+  datas.sort(sortTotalView);
+
   // founding news results count
   const foundItems = document.getElementById("foundItems");
   if (datas.length === 0) {
