@@ -50,7 +50,7 @@ const news = (datas) => {
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-            <div class="card h-100 hover-card rounded">
+            <div class="card h-100 hover-card rounded mydark-bgcolor mylight-textcolor">
               <img src="${data.image_url}" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">${data.title}</h5>
@@ -77,7 +77,7 @@ const news = (datas) => {
                     }<span><p></p>
                 </div>
                 <div class="col-6 text-center">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    <button type="button" class="btn mylight-textcolor" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                      onclick="createDetailsById('${
                        data._id
                      }')"><i class="fa-solid fa-right-to-bracket" ></i></button>
