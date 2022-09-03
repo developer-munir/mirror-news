@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mirror News</title>
+    <title>Mirror News Blogs</title>
     <!-- bootstrap cdn -->
     <link
       rel="stylesheet"
@@ -67,79 +67,45 @@
           </div>
         </nav>
       </section>
-      <!-- category links -->
-      <section class="container px-5">
-        <div>
-          <div class="navbar navbar-expand-lg">
-            <div class="mx-auto text-center">
-              <ul class="navbar-nav" id="categories-links"></ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- founding items -->
-      <section class="container px-5 my-3">
-        <div
-          class="border border-bottom border-dark border-opacity-50 rounded shadow py-3 px-5"
-          id="foundItems"
-        ></div>
-      </section>
     </header>
     <!-- header section ends here -->
 
     <!-- main section starts here -->
-    <main class="my-5">
-      <!-- spinner -->
-      <section class="d-none" id="spinner">
-        <div class="d-flex justify-content-center">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </section>
-      <!-- news section -->
-      <section class="mx-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="card-container"></div>
-      </section>
-      <!-- details section -->
-      <section>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="staticBackdrop"
-          data-bs-backdrop="static"
-          data-bs-keyboard="false"
-          tabindex="-1"
-          aria-labelledby="staticBackdropLabel"
-          aria-hidden="true"
-        >
-          <div
-            class="modal-dialog modal-dialog-scrollable"
-            id="modal-container"
-          >
-            <div class="modal-content">
-              <div class="modal-header">
-                <div class="modal-title" id="staticBackdropLabel"></div>
-              </div>
-              <div class="modal-body" id="modal-body"></div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
+    <main>
+        <!-- questions answers section -->
+        <section class="m-5 px-4">
+            <div>
+                <div class="border border-opacity-50 border-dark rounded p-4 text-center mb-2 hover-card">
+                    <p>
+                        The differences between var, let, and const variable declaration in JavaScript include: Variables declared with var and const are scoped to the immediate function body. Variables declared with the var keyword are hoisted.
+                    </p>
+                </div>
+                <div class="border border-opacity-50 border-dark rounded p-4 text-center mb-2 hover-card">
+                    <p>
+                        The third major difference between arrow functions and regular functions is that arrow functions are always anonymous. They cannot be named. Whereas a regular function created with the function keyword can be named or anonymous (function myFunc () {... } vs function () {... }), arrow functions are always anonymous.
+                    </p>
+                </div>
+                <div class="border border-opacity-50 border-dark rounded p-4 text-center mb-2 hover-card">
+                    <p>
+                        forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined. map() executes the same code on every element in an array and returns a new array with the updated elements. filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria. The find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
+                    </p>
+                </div>
+                <div class="border border-opacity-50 border-dark rounded p-4 text-center mb-2 hover-card">
+                    <p>
+                        Template literals are sometimes informally called template strings, because they are used most commonly for string interpolation (to create strings by doing substitution of placeholders).
+                    </p>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
     <!-- main section ends here -->
 
     <!-- footer section starts here -->
-    <footer></footer>
+    <footer>
+      <section class="text-center fw-semibold">
+        <p>develop by developer-munir</p>
+      </section>
+    </footer>
     <!-- footer section ends here -->
 
     <!---------------------------------

@@ -104,18 +104,18 @@ const openDetails = data => {
   const body = document.getElementById("modal-body");
   title.innerHTML = `
   <h5>
-      Author Name : ${data.author?.name ? data.author.name : "no name found"}  
+      Author Name : ${data.author.name ? data.author.name : "no name found"}  
   </h5>
   <p> 
       Publish Date : ${
-        data.author?.published_date
+        data.author.published_date
           ? data.author.published_date
           : "no date found"
       }
   </p>
   <div class = "text-center">
   <img src="${
-    data.author?.img ? data.author.img : "img not found"
+    data.author.img ? data.author.img : "img not found"
   }" class="img-fluid w-25 rounded-pill mb-2" alt="">
   <p>Total View : ${data.total_view? data.total_view:'no view found'}</p>
   </div>
