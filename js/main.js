@@ -21,7 +21,6 @@ const categories = (datas) => {
   });
 };
 categoriesData();
-
 /*------------------------------------
  all news section 
  -------------------------------------*/
@@ -35,20 +34,20 @@ const createNewsId = (id) => {
     .catch((error) => console.log(error));
 };
 const news = (datas) => {
-  
-
   // sorting total view
   const sortTotalView = (a, b) => {
     return b.total_view - a.total_view;
   };
   datas.sort(sortTotalView);
-
   // founding news results count
+  const sortingContainerById = document.getElementById("sorting-container");
   const foundItems = document.getElementById("foundItems");
   if (datas.length === 0) {
     foundItems.innerText = "no news found";
+    sortingContainerById.style.display = 'none';
   } else {
     foundItems.innerText = `${datas.length} news found `;
+    sortingContainerById.style.display = 'block';
   }
 
   // adding results inside card
@@ -175,4 +174,5 @@ const spinnerLading = (isLoading) => {
     spinner.classList.add("d-none");
   }
 };
-  createNewsId(8);
+// default
+createNewsId(8);
