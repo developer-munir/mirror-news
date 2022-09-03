@@ -81,27 +81,62 @@
         </div>
       </section>
       <!-- founding items -->
-      <section class="container px-5 my-3" >
+      <section class="container px-5 my-3">
         <div
           class="border border-bottom border-dark border-opacity-50 rounded shadow py-3 px-5"
-        id="foundItems"></div>
+          id="foundItems"
+        ></div>
       </section>
     </header>
     <!-- header section ends here -->
 
     <!-- main section starts here -->
     <main class="my-5">
-        <!-- spinner -->
-        <section class="d-none" id="spinner">
-          <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+      <!-- spinner -->
+      <section class="d-none" id="spinner">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
           </div>
-        </section>
+        </div>
+      </section>
       <!-- news section -->
       <section class="mx-5">
         <div class="row row-cols-1 row-cols-md-3 g-4" id="card-container"></div>
+      </section>
+      <!-- details section -->
+      <section>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-scrollable"
+            id="modal-container"
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title" id="staticBackdropLabel"></div>
+              </div>
+              <div class="modal-body" id="modal-body"></div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <!-- main section ends here -->

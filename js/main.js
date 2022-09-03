@@ -12,13 +12,12 @@ const categories = (datas) => {
   const categoryLinkContainer = document.getElementById("categories-links");
   datas.forEach((data) => {
     const categoryId = data.category_id;
-    // console.log(categoryId);
     const categoryName = data.category_name;
     const li = document.createElement("li");
     li.innerHTML = `
             <a class="nav-link" href="#" onclick="createNewsId(${categoryId})">${categoryName}</a>
         `;
-        categoryLinkContainer.appendChild(li);
+    categoryLinkContainer.appendChild(li);
   });
 };
 categoriesData();
@@ -34,22 +33,24 @@ const createNewsId = (id) => {
     .catch((error) => console.log(error));
 };
 const news = (datas) => {
-  const cardContainer = document.getElementById("card-container");
-  // founding news
+
+
+  // founding news results count
   const foundItems = document.getElementById("foundItems");
-  const result = cardContainer.children.length;
-  if (cardContainer.children.length === 0) {
-    foundItems.innerText = 'no news found';
+  if (datas.length === 0) {
+    foundItems.innerText = "no news found";
   } else {
-    foundItems.innerText = `${result} result found `
+    foundItems.innerText = `${datas.length} news found `;
   }
-    cardContainer.textContent = ``;
+
+  // adding results inside card
+  const cardContainer = document.getElementById("card-container");
+  cardContainer.textContent = ``;
   datas.forEach((data) => {
-    console.log(data);
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-            <div class="card h-100">
+            <div class="card h-100 hover-card rounded">
               <img src="${data.image_url}" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">${data.title}</h5>
@@ -60,21 +61,69 @@ const news = (datas) => {
                   data.author.img
                 }" class = "img-fluid rounded rounded-pill w-25" alt=".." />
                 <div>
-                    <p>${data.author?.name? data.author.name:'no name found'}</p>
-                    <p>${data.author?.published_date? data.author.published_date : 'date is not available'}</p>
+                    <p>${
+                      data.author?.name ? data.author.name : "no name found"
+                    }</p>
+                    <p>${
+                      data.author?.published_date
+                        ? data.author.published_date
+                        : "no date found"
+                    }</p>
                 </div>
                 </div>
                 <div class="col-6 text-center">
-                    <p><i class="fa-solid fa-eye"></i> <span>follow<span><p></p>
+                    <p><i class="fa-solid fa-eye"></i> <span>${
+                      data.total_view ? data.total_view : "no view found"
+                    }<span><p></p>
                 </div>
                 <div class="col-6 text-center">
-                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                     onclick="createDetailsById('${
+                       data._id
+                     }')"><i class="fa-solid fa-right-to-bracket" ></i></button>
                 </div>
             </div>
                 `;
-      cardContainer.appendChild(div);
-    });
+    cardContainer.appendChild(div);
+  });
 };
 /* ------------------------------------
-searching count 
+  create details by id and open details
 -------------------------------------- */
+const createDetailsById = id => {
+  const url = `https://openapi.programming-hero.com/api/news/${id}`;
+  fetch(url)
+  .then(res => res.json())
+  .then(data => openDetails(data.data[0]))
+  .catch(error => console.log(error))
+}
+
+const openDetails = data => {
+  console.log(data);
+  const title = document.getElementById("staticBackdropLabel");
+  const body = document.getElementById("modal-body");
+  title.innerHTML = `
+  <h5>
+      Author Name : ${data.author?.name ? data.author.name : "no name found"}  
+  </h5>
+  <p> 
+      Publish Date : ${
+        data.author?.published_date
+          ? data.author.published_date
+          : "no date found"
+      }
+  </p>
+  <div class = "text-center">
+  <img src="${
+    data.author?.img ? data.author.img : "img not found"
+  }" class="img-fluid w-25 rounded-pill mb-2" alt="">
+  <p>Total View : ${data.total_view? data.total_view:'no view found'}</p>
+  </div>
+  `;
+  body.innerHTML = `
+  <h6 class = "text-center border-bottom">Details</h6>
+  <p>
+    ${data.details? data.details:'details not found'}
+  </p>  
+  `;
+}

@@ -32,3 +32,6 @@ body{
     color: #B4161B;
 }
 
+.hover-card:hover{
+    box-shadow: 0 0.5rem 2rem rgba(43, 35, 35, 0.175);
+}
